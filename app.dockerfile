@@ -1,6 +1,5 @@
-FROM php:7.4-fpm 
-RUN apt-get update
-RUN apt-get install -y libmcrypt-dev \
+FROM php:7.1.7-fpm 
+RUN apt-get update && apt-get install -y libmcrypt-dev \
+    libpq-dev --no-install-recommends \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
     && docker-php-ext-install mcrypt pdo_pgsql pgsql
-
