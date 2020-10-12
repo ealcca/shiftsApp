@@ -18,6 +18,8 @@ class CreateTurnosTable extends Migration
             $table->date('fecha');
             $table->time('hora');
             $table->timestamps();
+            $table->foreignId('cliente_id');
+            $table->foreignId('servicio_id');
         });
     }
 
