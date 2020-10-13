@@ -34,6 +34,9 @@ services:
     restart: always
     ports:
       - 8081:8080
+  #testing tools
+  selenium:
+    image: selenium/standalone-chrome
 volumes:
   dbdata: {}
 
