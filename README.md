@@ -1,3 +1,3 @@
 ![Laravel](https://github.com/ealcca/shiftsApp/workflows/Laravel/badge.svg)
-# My project
+# shiftsApp
 App para generar y administrar Turnos
