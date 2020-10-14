@@ -9,6 +9,7 @@ use Tests\DuskTestCase;
 
 class LoginTest extends DuskTestCase
 {
+    use DatabaseMigrations;
     /**
      * A Dusk test example.
      *
@@ -16,9 +17,14 @@ class LoginTest extends DuskTestCase
      */
     public function testLogin()
     {
-        $this->browse(function (Browser $browser) {
+        $user = User::factory()->create([
+            'email' => 'test@laravel.com',
+            'password' => bcrypt('12345678')
+        ]);
+
+        $this->browse(function (Browser $browser) use ($user) {
             $browser->visit('/login')
-                    ->type('email','test@test.com')
+                    ->type('email',$user->email)
                     ->type('password','12345678')
                     ->press('LOGIN')
                     ->assertSee('Dashboard');
