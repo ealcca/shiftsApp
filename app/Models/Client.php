@@ -9,6 +9,8 @@ class Client extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name','lastname','age','phone'];
+
     public function turns()
     {
         return $this->hasMany('App\Models\Turn');
