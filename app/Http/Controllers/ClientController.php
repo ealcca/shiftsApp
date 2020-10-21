@@ -15,9 +15,7 @@ class ClientController extends Controller
     public function index()
     {
         $clients = Client::all();
-        return view('clients.index', [
-            'clients' => $clients
-        ]);
+        return view('clients.index',['clients' => $clients]);
     }
 
     /**
@@ -62,7 +60,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
+        return view('clients.edit',['client'=>$client]);
     }
 
     /**
@@ -74,7 +72,9 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        //
+        $input = $request->all();
+        $client->update($input);
+        return redirect('clients');
     }
 
     /**
