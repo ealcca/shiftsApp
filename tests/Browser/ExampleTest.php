@@ -19,5 +19,5 @@ class ExampleTest extends DuskTestCase
             $browser->visit('/')
                     ->assertSee('Shifts-App');
         });
-    }
+    } 
 }
