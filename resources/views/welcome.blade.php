@@ -35,11 +35,22 @@
             @endif
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
+                    
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
 
-                    <div class="flex flex-col">
-                        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                    <div class="bg-gray-50">
+                        <div class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+                            <h2 class="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
+                            Shifts-App
+                            <br>
+                            <span class="text-indigo-600">Gestion de turnos</span>
+                            </h2>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col">                    
+                        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">                        
+                            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"> 
                                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                     <table class="min-w-full divide-y divide-gray-200">
                                         <thead>
@@ -93,8 +104,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
+                    </div>                   
 
 
 
