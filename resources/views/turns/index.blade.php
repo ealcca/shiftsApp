@@ -62,7 +62,7 @@
                                     <div class="text-sm leading-5 text-gray-900">{{ $turn->pending }}</div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                                    {{ $turn->created_at }}
+                                    {{ $turn->client->name }}
                                 </td>
                                 <td class="px-5 py-4 flex space-x-4">   
                                 </td>
