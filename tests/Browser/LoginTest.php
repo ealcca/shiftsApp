@@ -30,4 +30,20 @@ class LoginTest extends DuskTestCase
                     ->assertSee('Dashboard');
         });
     }
+
+    public function testLoginFail()
+    {
+        $user = User::factory()->create([
+            'email' => 'test@laravel.com',
+            'password' => bcrypt('12345678a')
+        ]);
+
+        $this->browse(function (Browser $browser) use ($user) {
+            $browser->visit('/login')
+                    ->type('email',$user->email)
+                    ->type('password','12345678')
+                    ->press('LOGIN')
+                    ->assertSee('These credentials do not match our records');
+        });
+    }
 }
