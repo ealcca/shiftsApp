@@ -32,10 +32,12 @@ class TestClientsApi extends TestCase
     {
         $user = User::factory()->create(); 
         
-        $client = new Client(['name' => 'test name',
-            'lastname' => 'test lastname',
-            'age' => '23',
-            'phone' => '234521357']);
+        $client_data = ['name' => 'test name',
+        'lastname' => 'test lastname',
+        'age' => '23',
+        'phone' => '234521357'];
+
+        $client = new Client($client_data);
 
         $client->save();
         
@@ -48,9 +50,28 @@ class TestClientsApi extends TestCase
 
         $response->assertStatus(200);
         $response->assertJsonCount(1);
-        // $response->assertJson([
-        //     'name' => $user->name
-        // ]);
+        $response->assertJsonFragment([
+            'name' => $client_data['name']
+        ]);
     }
+
+    public function testGuestCanNotGetClientsApi()
+    {   
+
+        $response = $this->getJson('/api/clients');
+
+        $response->assertUnauthorized();
+
+    }
+
+    public function testUserWithoutTokenCanNotGetClientsApi()
+    {
+        $user = User::factory()->create(); 
+
+        $response = $this->getJson('/api/clients');
+
+        $response->assertUnauthorized();
+    }
+    
 }
 
