@@ -9,6 +9,8 @@ class Service extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['specialty'];
+
     public function turns()
     {
         return $this->hasMany('App\Models\Turn');
